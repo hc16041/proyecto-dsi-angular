@@ -6,7 +6,7 @@
     <div class="row">
         <div class="col">
             <div class="form-group">
-                <!-- <input type="text" name="filterEmpleado" class="form-control" placeholder="Buscar" [(ngModel)]="filterEmpleado"> -->
+                <input type="text" name="filterEmpleado" class="form-control" placeholder="Buscar" [(ngModel)]="filterHabitacion">
             </div>
         </div>
     </div>
@@ -22,16 +22,21 @@
             </tr>
         </thead>
         <tbody>
-            <!-- <tr *ngFor="let empleado of empleados | filter:filterEmpleado">
-                <th scope="row">{{empleado.id}}</th>
-                <td>{{empleado.nombres}}</td>
-                <td>{{empleado.apellidos}}</td>
-                <td>{{empleado.id_cargo}}</td>
-                <td><button style="margin-right: 10px;" class="btn btn-primary" [routerLink]="['/empleados/form',empleado.id]" routerLinkActive="router-link-active">Editar</button>
-                    <button class="btn btn-danger" (click)="delete(empleado)">Eliminar</button>
+            <tr *ngFor="let habitacion of habitaciones | busHabitacion:filterHabitacion">
+                <th scope="row">{{habitacion.numero_habitacion}}</th>
+                <td>{{habitacion.tipo_habitacion}}</td>
+                <td>{{habitacion.precio}}</td>
+
+                <td *ngIf="habitacion.estado_habitacion;else elseBlock">Activo</td>
+                <ng-template #elseBlock>
+                    <td>Inactivo</td>
+                </ng-template>
+
+                <td><button style="margin-right: 10px;" class="btn btn-primary" [routerLink]="['/habitaciones/form',habitacion.id]" routerLinkActive="router-link-active">Editar</button>
+                    <button class="btn btn-danger" (click)="delete(habitacion)">Eliminar</button>
                 </td>
 
-            </tr> -->
+            </tr>
         </tbody>
     </table>
 </div>

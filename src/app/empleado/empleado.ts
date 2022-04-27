@@ -11,8 +11,8 @@ export class Empleado {
   ciudad?: string;
   telefono?: number;
   sexo?: string;
+  email?: string;
   fecha_contratacion?: Date;
   id_cargo?: number;
   id_departamento?: number;
-  state?: boolean;
 }

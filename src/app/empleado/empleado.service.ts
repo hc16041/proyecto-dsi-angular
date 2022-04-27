@@ -2,8 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Empleado } from './empleado';
-import { Cargo } from './cargo';
-import { Departamento } from './departamento';
+import { Departamento } from '../departamento/departamento';
 
 @Injectable({
   providedIn: 'root',
@@ -40,12 +39,8 @@ export class EmpleadoService {
     return this.http.delete<Empleado>(this.url + '/empleados/' + id);
   }
 
-  // obtener cargos
-  getCargos(): Observable<Cargo[]> {
-    return this.http.get<Cargo[]>(this.url + '/cargos/');
-  }
   // obtener dep
   getDepartamentos(): Observable<Departamento[]> {
-    return this.http.get<Departamento[]>(this.url + '/departamentos/');
+    return this.http.get<Departamento[]>(this.url + '/departamento/');
   }
 }
