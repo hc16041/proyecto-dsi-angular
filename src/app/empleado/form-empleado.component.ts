@@ -54,7 +54,10 @@ export class FormEmpleadoComponent implements OnInit {
       ],
       direccion: ['', Validators.required],
       ciudad: ['', Validators.required],
-      telefono: ['', Validators.required],
+      telefono: [
+        '',
+        [Validators.required, Validators.maxLength(8), Validators.minLength(8)],
+      ],
       sexo: ['', Validators.required],
       email: ['', [Validators.required, Validators.email]],
       fecha_contratacion: ['', Validators.required],

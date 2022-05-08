@@ -17,6 +17,7 @@ import { InicioComponent } from './inicio/inicio.component';
 import { BusCargoPipe } from './pipes/bus-cargo.pipe';
 import { BusHabitacionPipe } from './pipes/bus-habitacion.pipe';
 import { BusDepartamentoPipe } from './pipes/bus-departamento.pipe';
+import { NgxMaskModule } from 'ngx-mask';
 
 @NgModule({
   declarations: [
@@ -41,6 +42,7 @@ import { BusDepartamentoPipe } from './pipes/bus-departamento.pipe';
     HttpClientModule,
     FormsModule,
     ReactiveFormsModule,
+    NgxMaskModule.forRoot(),
   ],
   providers: [],
   bootstrap: [AppComponent],

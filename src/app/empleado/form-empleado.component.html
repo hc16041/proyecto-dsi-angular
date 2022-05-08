@@ -6,20 +6,23 @@
             <div class="form-row">
                 <div class="form-group col-md-6">
                     <label for="nombres" class="col-form-label col-sm-12">Nombres</label>
-                    <input type="text" class="form-control" name="nombres" [(ngModel)]="empleado.nombres" placeholder="Nombres" formControlName="nombres">
-                    <!-- <div *ngIf="registroForm.get('nombres')?.hasError('required') && registroForm.get('nombres')?.touched">Los nombres son obligatorios</div> -->
-                    <span class="text-danger ml-2" *ngIf="
-registroForm.get('nombres')?.hasError('required') &&
-registroForm.get('nombres')?.touched
-">El nombre es requerido</span>
-                    <span class="text-danger ml-2" *ngIf="
-registroForm.get('nombres')?.hasError('minlength') &&
-registroForm.get('nombres')?.touched
-">El nombre es requerido</span>
+                    <input type="text" class="form-control" name="nombres" [(ngModel)]="empleado.nombres" placeholder="Nombres" formControlName="nombres" [maxlength]="200">
+                    <!-- validacion de campo y de longitud del campo -->
+                    <span class="text-danger ml-2" *ngIf="registroForm.get('nombres')?.hasError('required') && registroForm.get('nombres')?.touched">Los
+            nombres
+            son requeridos</span>
+                    <span class="text-danger ml-2" *ngIf="registroForm.get('nombres')?.hasError('maxlength') && registroForm.get('nombres')?.touched">Cantidad
+            de caracteres se pasa de 200</span>
                 </div>
                 <div class="form-group col-md-6">
                     <label for="apellidos" class="col-form-label col-sm-12">Apellidos</label>
-                    <input type="text" class="form-control" name="apellidos" [(ngModel)]="empleado.apellidos" placeholder="Apellidos" formControlName="apellidos">
+                    <input type="text" class="form-control" name="apellidos" [(ngModel)]="empleado.apellidos" placeholder="Apellidos" formControlName="apellidos" [maxlength]="200">
+                    <!-- validacion de campo y de longitud del campo -->
+                    <span class="text-danger ml-2" *ngIf="registroForm.get('apellidos')?.hasError('required') && registroForm.get('apellidos')?.touched">Los
+            apellidos
+            son requeridos</span>
+                    <span class="text-danger ml-2" *ngIf="registroForm.get('apellidos')?.hasError('maxlength') && registroForm.get('apellidos')?.touched">Cantidad
+            de caracteres se pasa de 200</span>
                 </div>
             </div>
             <div class="form-row">
@@ -27,44 +30,66 @@ registroForm.get('nombres')?.touched
                     <label for="fecha_nacimiento" class="col-form-label col-sm-12">Fecha de Nacimiento</label>
 
                     <input type="date" class="form-control" name="fecha_nacimiento" [(ngModel)]="empleado.fecha_nacimiento" placeholder="Fecha de Nacimiento" formControlName="fecha_nacimiento">
+                    <!-- validacion de campo y de longitud del campo -->
+                    <span class="text-danger ml-2" *ngIf="registroForm.get('fecha_nacimiento')?.hasError('required') && registroForm.get('fecha_nacimiento')?.touched">La
+            fecha de nacimiento
+            requerida</span>
 
 
                 </div>
                 <div class="form-group col-md-6">
                     <label for="nacionalidad" class="col-form-label col-sm-12">Nacionalidad</label>
                     <input type="text" class="form-control" name="nacionalidad" [(ngModel)]="empleado.nacionalidad" placeholder="Nacionalidad" formControlName="nacionalidad">
+                    <!-- validacion de campo y de longitud del campo -->
+                    <span class="text-danger ml-2" *ngIf="registroForm.get('nacionalidad')?.hasError('required') && registroForm.get('nacionalidad')?.touched">La
+            nacionalidad
+            es requerida</span>
+
                 </div>
             </div>
             <div class="form-row">
                 <div class="form-group col-md-6">
                     <label for="dui" class="col-form-label col-sm-12">N° DUI</label>
 
-                    <input type="text" class="form-control" name="dui" [(ngModel)]="empleado.dui" placeholder="N° DUI" formControlName="dui">
-                    <span class="text-danger ml-2" *ngIf="
-                    registroForm.get('dui')?.hasError('minlength') &&
-                    registroForm.get('dui')?.touched
-                    ">El dui debe tener 9 digitos</span>
-                    <span class="text-danger ml-2" *ngIf="
-                    registroForm.get('dui')?.hasError('maxlength') &&
-                    registroForm.get('dui')?.touched
-                    ">El dui no debe de tener mas de 9 digitos</span>
+                    <input type="text" class="form-control" name="dui" [(ngModel)]="empleado.dui" formControlName="dui" mask="000000-0">
+                    <!-- validacion de campo y de longitud del campo -->
+                    <span class="text-danger ml-2" *ngIf="registroForm.get('dui')?.hasError('required') && registroForm.get('dui')?.touched">El dui es
+            requerido</span>
+                    <span class="text-danger ml-2" *ngIf="registroForm.get('dui')?.hasError('minlength') && registroForm.get('dui')?.touched || registroForm.get('dui')?.hasError('maxlength')">El
+            dui debe tener
+            9 digitos</span>
+
                 </div>
                 <div class="form-group col-md-6">
                     <label for="isss" class="col-form-label col-sm-12">N° ISSS</label>
 
                     <input type="text" class="form-control" name="isss" [(ngModel)]="empleado.isss" placeholder="N° ISSS" formControlName="isss">
-
+                    <!-- validacion de campo y de longitud del campo -->
+                    <span class="text-danger ml-2" *ngIf="registroForm.get('isss')?.hasError('required') && registroForm.get('isss')?.touched">El isss es
+            requerido</span>
+                    <span class="text-danger ml-2" *ngIf="registroForm.get('isss')?.hasError('minlength') && registroForm.get('isss')?.touched || registroForm.get('isss')?.hasError('maxlength')">El
+            isss debe tener
+            9 digitos</span>
                 </div>
             </div>
             <div class="form-row">
                 <div class="form-group col-md-6">
                     <label for="nup" class="col-form-label col-sm-12">N° NUP</label>
-
                     <input type="text" class="form-control" name="nup" [(ngModel)]="empleado.nup" placeholder="N° NUP" formControlName="nup">
+                    <!-- validacion de campo y de longitud del campo -->
+                    <span class="text-danger ml-2" *ngIf="registroForm.get('nup')?.hasError('required') && registroForm.get('nup')?.touched">El nup es
+            requerido</span>
+                    <span class="text-danger ml-2" *ngIf="registroForm.get('nup')?.hasError('minlength') && registroForm.get('nup')?.touched || registroForm.get('nup')?.hasError('maxlength')">El
+            nup debe tener
+            9 digitos</span>
                 </div>
                 <div class="form-group col-md-6">
                     <label for="direccion" class="col-form-label col-sm-12">Direccion</label>
                     <input type="text" class="form-control" name="direccion" [(ngModel)]="empleado.direccion" placeholder="Direccion" formControlName="direccion">
+                    <!-- validacion de campo y de longitud del campo -->
+                    <span class="text-danger ml-2" *ngIf="registroForm.get('direccion')?.hasError('required') && registroForm.get('direccion')?.touched">La
+            direccion es
+            requerida</span>
                 </div>
             </div>
             <div class="form-row">
@@ -72,10 +97,20 @@ registroForm.get('nombres')?.touched
                     <label for="ciudad" class="col-form-label col-sm-12">Ciudad</label>
 
                     <input type="text" class="form-control" name="ciudad" [(ngModel)]="empleado.ciudad" placeholder="Ciudad" formControlName="ciudad">
+                    <!-- validacion de campo y de longitud del campo -->
+                    <span class="text-danger ml-2" *ngIf="registroForm.get('ciudad')?.hasError('required') && registroForm.get('ciudad')?.touched">La ciudad es
+            requerida</span>
                 </div>
                 <div class="form-group col-md-6">
                     <label for="telefono" class="col-form-label col-sm-12">Telefono</label>
-                    <input type="text" class="form-control" name="telefono" [(ngModel)]="empleado.telefono" placeholder="Telefono" formControlName="telefono">
+                    <input type="text" class="form-control" name="telefono" [(ngModel)]="empleado.telefono" ui-br-phone-number-mask="simple" formControlName="telefono">
+                    <!-- validacion de campo y de longitud del campo -->
+                    <span class="text-danger ml-2" *ngIf="registroForm.get('telefono')?.hasError('required') && registroForm.get('telefono')?.touched">El
+            telefono es
+            requerido</span>
+                    <span class="text-danger ml-2" *ngIf="registroForm.get('telefono')?.hasError('minlength') && registroForm.get('telefono')?.touched || registroForm.get('telefono')?.hasError('maxlength')">El
+            telefono debe tener
+            8 digitos</span>
                 </div>
             </div>
             <div class="form-row">
@@ -85,16 +120,23 @@ registroForm.get('nombres')?.touched
                     <!-- <input type="text" class="form-control" name="sexo" [(ngModel)]="empleado.sexo"> -->
 
                     <select [(ngModel)]="empleado.sexo" name="sexo" (change)="changeCargo($event)" class="form-control" formControlName="sexo">
-            <option value="">Seleccionar</option>
+            <!-- validacion de campo y de longitud del campo -->
+
+            <option value="0" [selected]>Seleccionar</option>
             <option value="m">Masculino</option>
             <option value="f">Femenino</option>
           </select>
+                    <span class="text-danger ml-2" *ngIf="registroForm.get('sexo')?.hasError('required') && registroForm.get('sexo')?.touched">El sexo es
+            requerido</span>
 
                 </div>
                 <div class="form-group col-md-6">
                     <label for="email" class="col-form-label col-sm-12">Email</label>
 
                     <input type="text" class="form-control" name="email" [(ngModel)]="empleado.email" placeholder="Email" formControlName="email">
+                    <!-- validacion de campo y de longitud del campo -->
+                    <span class="text-danger ml-2" *ngIf="registroForm.get('email')?.hasError('required') && registroForm.get('email')?.touched">El email es
+            requerido</span>
 
                 </div>
             </div>
@@ -103,7 +145,10 @@ registroForm.get('nombres')?.touched
                     <label for="fecha_contratacion" class="col-form-label col-sm-12">Fecha de Contratacion</label>
 
                     <input type="date" class="form-control" name="fecha_contratacion" [(ngModel)]="empleado.fecha_contratacion" placeholder="Fecha de Contratacion" formControlName="fecha_contratacion">
-
+                    <!-- validacion de campo y de longitud del campo -->
+                    <span class="text-danger ml-2" *ngIf="registroForm.get('fecha_contratacion')?.hasError('required') && registroForm.get('fecha_contratacion')?.touched">La
+            fecha de contratacion es
+            requerida</span>
                 </div>
                 <div class="form-group col-md-6">
                     <label for="cargo" class="col-form-label col-sm-12">Cargo</label>
@@ -115,7 +160,10 @@ registroForm.get('nombres')?.touched
             </option>
           </select>
 
-
+                    <!-- validacion de campo y de longitud del campo -->
+                    <span class="text-danger ml-2" *ngIf="registroForm.get('id_cargo')?.hasError('required') && registroForm.get('id_cargo')?.touched">El cargo
+            es
+            requerido</span>
                 </div>
 
             </div>
@@ -129,13 +177,19 @@ registroForm.get('nombres')?.touched
               {{d.nombre_departamento}}
             </option>
           </select>
+                    <!-- validacion de campo y de longitud del campo -->
+                    <span class="text-danger ml-2" *ngIf="registroForm.get('id_departamento')?.hasError('required') && registroForm.get('id_departamento')?.touched">El
+            departamento es
+            requerido</span>
                 </div>
             </div>
+            <div class="form-group">
+                <button class=" btn btn-success " (click)="create()" *ngIf="!empleado.id else elseBlock " [disabled]="registroForm.invalid" type="submit">Registrar</button>
+                <ng-template #elseBlock>
+                    <button class="btn btn-success " (click)="update() " [disabled]="registroForm.invalid" type="submit">Actualizar</button>
+                </ng-template>
+            </div>
 
-            <button class=" btn btn-success " (click)="create()" *ngIf="!empleado.id else elseBlock ">Registrar</button>
-            <ng-template #elseBlock>
-                <button class="btn btn-success " (click)="update() ">Actualizar</button>
-            </ng-template>
 
         </div>
 
